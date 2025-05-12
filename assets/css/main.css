@@ -812,15 +812,10 @@ nav {
 
 /* Footer */
 footer {
-    background-color: var(--footer-bg);
-    color: var(--footer-text-color);
-    padding-top: 3rem; /* Reduced padding slightly */
-    margin-top: 4rem; /* Ensure separation from last section */
-    border-top: 1px solid var(--border-color);
-    padding: 0; /* Remove main padding, handle in sections */
-    font-size: 1rem;
-    position: relative;
-    z-index: 2;
+    background-color: #1a1a1a; /* Added dark background */
+    color: #ccc;
+    padding: 4rem 0 2rem;
+    margin-top: 4rem;
 }
 
 .footer-main {
@@ -937,9 +932,9 @@ footer {
 }
 
 .footer-bottom p {
-    font-size: 0.9rem;
-    color: #888;
     margin: 0;
+    font-size: 0.9em;
+    color: #aaa; /* Adjusted for dark background */
 }
 
 /* Dark Mode Footer Overrides (already handled by base dark mode) */
