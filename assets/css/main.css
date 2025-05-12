@@ -100,9 +100,9 @@ p {
 }
 
 section {
-    padding: clamp(80px, 12vh, 140px) 0;
-    position: relative;
-    z-index: 1;
+    padding: 4rem 0; /* Reduced padding */
+    overflow: hidden; /* Prevent horizontal scrollbars from animations/transforms */
+    position: relative; /* For absolute positioning within sections if needed */
     background: #f8f9fa !important;
     box-shadow: none !important;
     border-radius: 0 !important;
@@ -137,11 +137,11 @@ section + section {
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding-top: calc(var(--header-height) + 40px);
-    padding-bottom: 60px;
+    padding-top: 80px; /* Header height compensation */
+    padding-bottom: 4rem; /* Standardized bottom padding */
     position: relative;
     overflow: hidden;
-    background: linear-gradient(135deg, #f5f7fa 0%, #eef2f3 100%);
+    background: transparent; /* Let particles show through */
 }
 
 section:nth-of-type(even) {
@@ -703,15 +703,13 @@ nav {
 
 /* Contact Form */
 .contact-form {
-    background: #fff;
-    border-radius: var(--border-radius);
-    box-shadow: 0 4px 24px rgb(37 117 252 / 7%), var(--box-shadow-light);
-    padding: 3.2rem 2.7rem;
-    margin-top: 2.5rem;
-    max-width: 520px;
-    margin-left: auto;
-    margin-right: auto;
-    transition: box-shadow 0.4s ease, transform 0.3s ease; /* Add transition */
+    max-width: 700px;
+    margin: 2rem auto 0; /* Reduced top margin slightly */
+    padding: 2rem;
+    background-color: var(--card-bg-color);
+    border-radius: var(--border-radius-large);
+    box-shadow: var(--shadow-elevation-medium);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
 
 .contact-form:focus-within {
@@ -814,12 +812,13 @@ nav {
 
 /* Footer */
 footer {
+    background-color: var(--footer-bg);
+    color: var(--footer-text-color);
+    padding-top: 3rem; /* Reduced padding slightly */
+    margin-top: 4rem; /* Ensure separation from last section */
+    border-top: 1px solid var(--border-color);
     padding: 0; /* Remove main padding, handle in sections */
-    background: #181a20; /* Dark background for the entire footer */
-    color: #bdbdbd;
     font-size: 1rem;
-    border-top: none; /* Remove previous border */
-    box-shadow: none; /* Remove previous shadow */
     position: relative;
     z-index: 2;
 }
