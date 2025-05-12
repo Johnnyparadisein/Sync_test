@@ -213,6 +213,7 @@ document.querySelectorAll('.service-card, .portfolio-item, .team-member, .testim
 });
 
 // Initialize particles.js
+/*
 if (typeof tsParticles !== 'undefined') {
     tsParticles.load("particles-js", {
         fpsLimit: 60,
@@ -252,49 +253,43 @@ if (typeof tsParticles !== 'undefined') {
                 type: "circle"
             },
             opacity: {
-                value: 0.2,
-                random: true,
+                value: 0.3,
+                random: false,
                 anim: {
-                    enable: true,
-                    speed: 0.4,
-                    opacity_min: 0.05,
-                    sync: false
+                    enable: false
                 }
             },
             size: {
-                value: 2,
+                value: 3,
                 random: true,
                 anim: {
-                    enable: false,
-                    speed: 20,
-                    size_min: 0.1,
-                    sync: false
+                    enable: false
                 }
             },
-            links: {
+            line_linked: {
                 enable: true,
                 distance: 150,
                 color: "#bbbbbb",
-                opacity: 0.15,
+                opacity: 0.2,
                 width: 1
             },
             move: {
                 enable: true,
-                speed: 0.8,
+                speed: 1,
                 direction: "none",
-                random: true,
+                random: false,
                 straight: false,
                 out_mode: "out",
+                bounce: false,
                 attract: {
-                    enable: false,
-                    rotateX: 600,
-                    rotateY: 1200
+                    enable: false
                 }
             }
         },
         detectRetina: true
     });
 }
+*/
 
 // Add CSS for notifications
 const style = document.createElement('style');
