@@ -194,11 +194,6 @@ nav {
     justify-content: space-between;
     align-items: center;
     height: 100%;
-    background: none;
-    box-shadow: none;
-    margin: 0;
-    border-radius: 0;
-    padding: 0;
 }
 
 .logo {
@@ -219,27 +214,31 @@ nav {
 .nav-links {
     list-style: none;
     display: flex;
-    gap: 36px;
+    gap: 22px; /* Adjusted gap for smaller links */
     align-items: center;
+    margin-left: auto; /* Push links right, before toggles */
+    padding-right: 15px; /* Add some space before toggles */
 }
 
 .nav-links a {
     font-family: var(--primary-font);
     text-decoration: none;
     color: var(--text-color);
-    font-weight: 600;
-    font-size: 1.05rem; /* Slightly smaller */
-    padding: 8px 4px; /* Adjust padding */
+    font-weight: 500; /* Slightly less bold */
+    font-size: 0.88rem; /* Smaller font size */
+    padding: 5px 3px; /* Adjusted padding */
     position: relative;
-    border-bottom: 2.5px solid transparent;
+    border-bottom: 2px solid transparent;
     transition: color 0.2s, border-bottom-color 0.2s;
     outline: none;
 }
 
-.nav-links a.active, .nav-links a:focus, .nav-links a:hover {
+.nav-links a.active,
+.nav-links a:focus,
+.nav-links a:hover {
     color: var(--accent-color-primary);
-    border-bottom: 2.5px solid var(--accent-color-primary);
-    background: none;
+    border-bottom: 2px solid var(--accent-color-primary);
+    background: none; /* Ensure no background on hover/active for desktop */
     text-decoration: none;
 }
 
@@ -1276,14 +1275,15 @@ body.dark-mode .testimonial-author h4 {
 }
 
 body.dark-mode .nav-links a {
-    color: var(--text-color) !important;
+    color: var(--text-color) !important; /* Ensure dark mode text color */
 }
 
 body.dark-mode .nav-links a.active,
 body.dark-mode .nav-links a:focus,
 body.dark-mode .nav-links a:hover {
     color: var(--accent-color-primary) !important;
-    border-bottom: 2.5px solid var(--accent-color-primary) !important;
+    border-bottom: 2px solid var(--accent-color-primary) !important;
+    /* No background on hover for desktop dark mode */
 }
 
 body.dark-mode header {
@@ -1373,16 +1373,21 @@ body.dark-mode .learn-more:hover {
   background: none;
   border: none;
   color: var(--accent-color-primary);
-  font-size: 1.5rem;
-  margin-left: 18px;
+  font-size: 1.25rem; /* Adjusted size */
+  margin-left: 12px; /* Space from language toggle */
   cursor: pointer;
   transition: color 0.2s, transform 0.2s;
   outline: none;
   display: flex;
   align-items: center;
+  justify-content: center;
+  width: 28px; /* Explicit size */
+  height: 28px;
+  padding: 0;
 }
 
-.dark-mode-toggle:focus, .dark-mode-toggle:hover {
+.dark-mode-toggle:focus,
+.dark-mode-toggle:hover {
   color: var(--accent-color-secondary);
   transform: scale(1.15);
 }
@@ -1581,4 +1586,114 @@ body.dark-mode .form-group textarea:focus {
     .about-visual .visual-placeholder {
         min-height: 200px; /* Smaller placeholder */
     }
+}
+
+/* Language Toggle Button */
+.language-toggle {
+  background: none;
+  border: 1px solid var(--border-color);
+  color: var(--text-color);
+  font-family: var(--secondary-font); /* Consistent font */
+  font-size: 0.78rem; /* Smallest text */
+  font-weight: 500;
+  padding: 4px 7px;
+  border-radius: 5px;
+  /* margin-left: 20px; /* Will be handled by nav-links padding-right */
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s, background-color 0.2s;
+  outline: none;
+  height: 28px; /* Smaller height */
+  display: flex;
+  align-items: center;
+}
+
+.language-toggle:focus,
+.language-toggle:hover {
+  color: var(--accent-color-primary);
+  border-color: var(--accent-color-primary);
+  background-color: rgb(var(--accent-color-primary-rgb, 106, 17, 203), 0.05);
+}
+
+/* Dark mode toggle */
+.dark-mode-toggle {
+  background: none;
+  border: none;
+  color: var(--accent-color-primary);
+  font-size: 1.25rem; /* Adjusted size */
+  margin-left: 12px; /* Space from language toggle */
+  cursor: pointer;
+  transition: color 0.2s, transform 0.2s;
+  outline: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px; /* Explicit size */
+  height: 28px;
+  padding: 0;
+}
+
+.dark-mode-toggle:focus,
+.dark-mode-toggle:hover {
+  color: var(--accent-color-secondary);
+  transform: scale(1.15);
+}
+
+body.dark-mode .language-toggle {
+    border-color: var(--border-color);
+    color: var(--text-color);
+}
+
+body.dark-mode .language-toggle:focus,
+body.dark-mode .language-toggle:hover {
+    color: var(--accent-color-primary);
+    border-color: var(--accent-color-primary);
+    background-color: rgba(var(--accent-color-primary-rgb,168,139,255), 0.1);
+}
+
+body.dark-mode .dark-mode-toggle {
+    color: var(--accent-color-primary);
+}
+
+body.dark-mode .dark-mode-toggle:focus,
+body.dark-mode .dark-mode-toggle:hover {
+  color: #fff;
+}
+
+/* Mobile Menu Adjustments */
+@media (width <= 768px) {
+    /* ... existing .nav-links for mobile ... */
+    .nav-links {
+        gap: 0; /* Remove gap for stacked mobile links */
+        padding-right: 0; /* No padding needed here for mobile */
+        /* Other mobile styles for .nav-links are kept from previous state */
+    }
+
+    .nav-links a {
+        font-size: 1rem; /* Restore slightly larger for mobile tap */
+        font-weight: 500;
+        width: calc(100% - 30px); /* Full width with some margin */
+        margin: 5px 15px; /* Vertical margin and center */
+        padding: 12px 15px;
+        border-bottom: none; /* Remove desktop underline */
+        border-radius: 6px;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+        background-color: rgb(var(--accent-color-primary-rgb, 106, 17, 203), 0.08); /* Subtle hover for mobile */
+        color: var(--accent-color-primary);
+        border-bottom: none;
+    }
+    
+    .language-toggle {
+        margin-left: auto; /* Push to right before menu toggle */
+        margin-right: 10px;
+    }
+
+    body.dark-mode .nav-links a:hover,
+    body.dark-mode .nav-links a.active {
+        background-color: rgba(var(--accent-color-primary-rgb,168,139,255), 0.12) !important;
+    }
+
+    /* menu-toggle should already be styled and positioned by existing rules */
 } 
