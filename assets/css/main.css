@@ -162,21 +162,27 @@ section:last-of-type {
 
 /* Header & Navigation */
 header {
-    background: #fff;
-    box-shadow: 0 2px 10px rgb(0 0 0 / 6%);
-    border-bottom: 1.5px solid #e5e7eb;
+    /* background: #fff; */ /* Let backdrop filter handle initial */
+    background: rgb(255 255 255 / 80%); /* Semi-transparent white */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: none; /* Remove initial shadow */
+    border-bottom: 1.5px solid rgb(229 231 235 / 70%); /* Slightly transparent border */
     position: sticky;
     top: 0;
     left: 0;
     width: 100%;
     z-index: 1000;
     height: var(--header-height);
-    transition: box-shadow 0.3s, background 0.3s;
+    transition: box-shadow 0.3s, background 0.3s, backdrop-filter 0.3s, border-color 0.3s;
 }
 
 header.scrolled {
-    box-shadow: 0 4px 18px rgb(0 0 0 / 10%);
-    background: #fff;
+    box-shadow: 0 4px 18px rgb(0 0 0 / 8%); /* Reintroduce shadow on scroll */
+    background: rgb(255 255 255 / 95%); /* Less transparent on scroll */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom-color: #e5e7eb; /* Solid border on scroll */
 }
 
 header.hide {
@@ -222,8 +228,8 @@ nav {
     text-decoration: none;
     color: var(--text-color);
     font-weight: 600;
-    font-size: 1.08rem;
-    padding: 8px 0;
+    font-size: 1.05rem; /* Slightly smaller */
+    padding: 8px 4px; /* Adjust padding */
     position: relative;
     border-bottom: 2.5px solid transparent;
     transition: color 0.2s, border-bottom-color 0.2s;
