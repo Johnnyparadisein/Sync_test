@@ -433,19 +433,24 @@ nav {
     cursor: pointer;
     border-radius: var(--border-radius);
     box-shadow: 0 6px 32px rgb(37 117 252 / 7%), var(--box-shadow-light);
-    padding: 0;
+    padding: 0; /* Keep padding 0 */
     aspect-ratio: 16/10;
-    background: #fff;
-    transition: box-shadow 0.4s, transform 0.3s;
-    border: 2px solid transparent; /* Prepare for inner border */
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); /* Added subtle gradient background */
+    transition: box-shadow 0.4s, transform 0.3s, border-color 0.3s;
+    border: 1px solid var(--border-color); /* Use default border color */
+    display: flex; /* Use flex to help center overlay if needed */
+    align-items: center;
+    justify-content: center;
 }
 
 .portfolio-item:hover {
     box-shadow: 0 14px 48px rgb(37 117 252 / 13%), var(--box-shadow-medium);
     transform: translateY(-6px) scale(1.02);
-    border-color: var(--accent-color-secondary); /* Add border color */
+    border-color: var(--accent-color-secondary); /* Highlight border on hover */
 }
 
+/* Portfolio image styling (commented out as images removed) */
+/*
 .portfolio-item img {
     width: 100%;
     height: 100%;
@@ -457,38 +462,54 @@ nav {
     transform: scale(1.07);
     filter: brightness(1.08) contrast(1.08);
 }
+*/
 
 .portfolio-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.1) 100%); /* Smoother gradient */
+    position: relative; /* Changed from absolute */
+    inset: auto; /* Reset inset */
+    background: none; /* Remove gradient background */
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
-    align-items: flex-start;
-    opacity: 0;
-    transition: opacity 0.4s ease; /* Slightly slower transition */
-    padding: 2rem 1.7rem;
-    text-align: left;
-    border-radius: var(--border-radius);
+    justify-content: center; /* Center content vertically */
+    align-items: center; /* Center content horizontally */
+    opacity: 1; /* Always visible */
+    transition: none; /* No transition needed */
+    padding: 1.5rem; /* Adjust padding */
+    text-align: center; /* Center text */
+    border-radius: 0; /* Remove radius */
+    color: var(--text-color); /* Use default text color */
 }
 
-.portfolio-item:hover .portfolio-overlay {
-    opacity: 1;
-}
+/* Remove hover effect for overlay since it's always visible */
+/* .portfolio-item:hover .portfolio-overlay { ... } */
 
 .portfolio-overlay h3 {
-    font-size: 1.35rem;
-    color: #fff;
-    margin-bottom: 0.6rem;
+    font-size: 1.3rem; /* Adjusted size */
+    color: var(--text-color); /* Use default text color */
+    margin-bottom: 0.5rem; /* Adjusted spacing */
     background: none;
     -webkit-background-clip: initial;
     background-clip: initial;
 }
 
 .portfolio-overlay p {
-    color: rgb(255 255 255 / 92%);
-    font-size: 1rem;
+    color: #555; /* Slightly darker paragraph */
+    font-size: 0.95rem; /* Adjusted size */
+    margin-bottom: 0; /* Remove bottom margin */
+}
+
+/* Dark mode adjustments for portfolio items */
+body.dark-mode .portfolio-item {
+    background: linear-gradient(135deg, #23262f 0%, #2a2e37 100%); /* Dark gradient */
+    border-color: var(--border-color);
+}
+
+body.dark-mode .portfolio-overlay h3 {
+    color: var(--text-color);
+}
+
+body.dark-mode .portfolio-overlay p {
+    color: #adb5bd;
 }
 
 /* Team Section */
