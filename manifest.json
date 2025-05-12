@@ -1,0 +1,21 @@
+{
+  "name": "Sync - AI Solutions & Creative Services",
+  "short_name": "SyncAI",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#f8f9fa",
+  "theme_color": "#4B0CA6",
+  "description": "Transforming ideas into digital reality with cutting-edge technology and creative expertise.",
+  "icons": [
+    {
+      "src": "assets/images/favicon.ico",
+      "sizes": "48x48 32x32 16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "assets/images/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+} 
