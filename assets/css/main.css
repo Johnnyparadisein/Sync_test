@@ -618,12 +618,15 @@ nav {
 .testimonial-author {
     display: flex;
     align-items: center;
-    gap: 18px;
+    gap: 0; /* Remove gap since image is gone */
     z-index: 1;
     position: relative;
+    margin-top: 1rem; /* Add some top margin */
+    padding-left: 10px; /* Indent text slightly */
 }
 
 .testimonial-author img {
+   /* display: none; */ /* Image is commented out in HTML */
     width: 58px;
     height: 58px;
     border-radius: 50%;
@@ -1507,4 +1510,48 @@ body.dark-mode .form-group textarea:focus {
     box-shadow: 0 0 0 3px rgba(168, 139, 255, 0.25); /* Adjusted focus ring color for dark mode */
     background: var(--card-bg-color); /* Match dark card bg */
     border-color: var(--accent-color-primary);
+}
+
+/* About Us Section */
+#about .container {
+    max-width: 1100px; /* Allow slightly wider content */
+}
+
+.about-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr; /* Text takes more space */
+    gap: 50px;
+    align-items: center; /* Vertically align items */
+    margin-top: 2rem;
+}
+
+.about-text p {
+    font-size: 1.1rem; /* Slightly larger text */
+    line-height: 1.8; /* More spacing */
+    color: #495057; /* Consistent paragraph color */
+}
+
+.about-visual .visual-placeholder {
+    background-color: #e9ecef; /* Placeholder background */
+    border-radius: var(--border-radius);
+    min-height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #adb5bd;
+    font-style: italic;
+    /* You can add an SVG icon or text here later */
+    content: "Visual element"; /* Example content */
+}
+
+/* Responsive adjustments for About Us */
+@media (width <= 768px) {
+    .about-content {
+        grid-template-columns: 1fr; /* Stack columns */
+        gap: 30px;
+    }
+
+    .about-visual .visual-placeholder {
+        min-height: 200px; /* Smaller placeholder */
+    }
 } 
