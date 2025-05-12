@@ -27,7 +27,7 @@ A modern, responsive website showcasing AI solutions and creative services with 
 1. Clone the repository:
 ```bash
 git clone <repository-url>
-cd sync-website
+cd buffai-website
 ```
 
 2. Install dependencies:
@@ -59,7 +59,7 @@ This will:
 ## Project Structure
 
 ```
-sync-website/
+buffai-website/
 ├── assets/
 │   ├── css/
 │   │   ├── main.css

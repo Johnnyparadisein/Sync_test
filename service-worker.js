@@ -1,4 +1,4 @@
-const CACHE_NAME = 'sync-ai-cache-v1';
+const CACHE_NAME = 'buff-ai-cache-v1';
 const urlsToCache = [
   '/',
   '/index.html',
